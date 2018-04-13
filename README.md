@@ -20,7 +20,7 @@ You just need to refresh the target window and your extension will be able to de
 
 ## Install via NPM
 
-    npm install chrome-extension-reload-trigger --save
+    npm install chrome-extension-reload-trigger
 
 ## How to use
 
@@ -29,7 +29,7 @@ Reload the extension when any window is reloaded:
 ```javascript
     var XReloadTrigger = require('chrome-extension-reload-trigger');
 
-    // if no rules are added before the init call the reloading of extension will trigger if any window is refreshed.
+    // if no rules are added before the init call, reloading of extension will trigger if any window is refreshed.
 
     // start
     XReloadTrigger.init();
@@ -126,6 +126,6 @@ If you are not using node and a module bundler like webpack, you can directly in
 
 ## Support and Contribution
 
-If you are experiencing problems while using this module, you can issue at our github [repo](https://github.com/WisdomSky/chrome-extension-reload-trigger/issues).
+If you are experiencing problems while using this module, you can create an issue [here](https://github.com/WisdomSky/chrome-extension-reload-trigger/issues).
 
 If you want to contribute, you are free to send as a pull request anytime!

@@ -1,6 +1,6 @@
 {
   "name": "chrome-extension-reload-trigger",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Reloading a window or tab triggers the reloading of your google chrome extension",
   "main": "chrome-extension-reload-trigger.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "type": "git",
     "url": "https://github.com/WisdomSky/chrome-extension-reload-trigger"
   },
+  "homepage": "https://github.com/WisdomSky/chrome-extension-reload-trigger#readme",
   "author": "Julian Paolo Dayag <i.wisdomsky@gmail.com>",
   "license": "MIT",
   "dependencies": {
