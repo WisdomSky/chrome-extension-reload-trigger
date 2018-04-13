@@ -6,16 +6,27 @@
  */
 
 
-module.exports = (function() {
+(function(x) {
+    if (module && module.exports) {
+        module.exports = x;
+    } else if (window) {
+        window.XReloadTrigger = x;
+    } else {
+        return x;
+    }
+})((function() {
 
-    var _ = require('lodash');
-    var _RULES = [];
-    var PageReloadTrigger = function() {};
-    var nodeEnvCheck = true;
+    if (_ == undefined) {
+        _ = require('lodash');
+    }
 
+    var XReloadTrigger = function() {
+        this.rules = [];
+        this.nodeEnvCheck = true;
+    };
 
-    PageReloadTrigger.prototype.disableNodeEnvCheck = function() {
-        nodeEnvCheck = false;
+    XReloadTrigger.prototype.disableNodeEnvCheck = function(val) {
+        this.nodeEnvCheck = val;
     };
 
 
@@ -25,9 +36,9 @@ module.exports = (function() {
      * 
      * @param Function resolver 
      */
-    PageReloadTrigger.prototype.matchCustom = function(resolver) {
+    XReloadTrigger.prototype.matchCustom = function(resolver) {
 
-        _RULES.push({
+        this.rules.push({
             type: Function,
             value: resolver
         });
@@ -41,7 +52,7 @@ module.exports = (function() {
      * 
      * @param RegExp pattern 
      */
-    PageReloadTrigger.prototype.matchUrlPattern = function(pattern) {
+    XReloadTrigger.prototype.matchUrlPattern = function(pattern) {
 
         this.matchCustom((function(p) {
 
@@ -60,7 +71,7 @@ module.exports = (function() {
      * 
      * @param String url 
      */
-    PageReloadTrigger.prototype.matchUrl = function(url) {
+    XReloadTrigger.prototype.matchUrl = function(url) {
 
         this.matchCustom((function(u) {
 
@@ -80,9 +91,9 @@ module.exports = (function() {
      * @param Object tab  
      * @returns Boolean
      */
-    PageReloadTrigger.prototype.validate = function(tab) {
+    XReloadTrigger.prototype.validate = function(tab) {
 
-        return _RULES.reduce(function(accumulator, rule) {
+        return this.rules.reduce(function(accumulator, rule) {
             
             if (!accumulator) return false;
 
@@ -100,9 +111,9 @@ module.exports = (function() {
      * 
      * @returns Boolean
      */
-    PageReloadTrigger.prototype.init = function() {
+    XReloadTrigger.prototype.init = function() {
         
-        if (nodeEnvCheck && ['development', 'dev'].indexOf(String(process.env.NODE_ENV).trim().toLowerCase()) == -1) return false;
+        if (this.nodeEnvCheck && process != undefined && process.env != undefined && ['development', 'dev'].indexOf(String(process.env.NODE_ENV).trim().toLowerCase()) == -1) return false;
 
         var debouncedCallback = _.debounce(function(tab) {
 
@@ -135,6 +146,6 @@ module.exports = (function() {
           return true;
     };
 
-    return new PageReloadTrigger;
+    return new XReloadTrigger;
 
-})();
+})());
