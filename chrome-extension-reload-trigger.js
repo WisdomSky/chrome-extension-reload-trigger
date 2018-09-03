@@ -123,10 +123,10 @@
 
         }.bind(this), 50);
 
-        chrome.extension.onMessage.addListener(function({ action, tab }, sender, sendResponse){
+        chrome.extension.onMessage.addListener(function(data, sender, sendResponse){
 
-            if (action == 'page-reload-trigger-start-inject') {
-                debouncedCallback(tab);
+            if (data.action == 'page-reload-trigger-start-inject') {
+                debouncedCallback(data.tab);
             }
 
         });    

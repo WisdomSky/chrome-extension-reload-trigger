@@ -1,6 +1,6 @@
 {
   "name": "chrome-extension-reload-trigger",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Reloading a window or tab triggers the reloading of your google chrome extension",
   "main": "chrome-extension-reload-trigger.js",
   "scripts": {

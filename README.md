@@ -1,5 +1,8 @@
 # Chrome Extension Reload Trigger
 
+[![](https://img.shields.io/npm/dt/chrome-extension-reload-trigger.svg) ](https://www.npmjs.com/package/chrome-extension-reload-trigger) [![](https://img.shields.io/npm/l/chrome-extension-reload-trigger.svg) ](https://www.npmjs.com/package/chrome-extension-reload-trigger) [![](https://img.shields.io/npm/v/chrome-extension-reload-trigger.svg) ](https://www.npmjs.com/package/chrome-extension-reload-trigger)
+
+
 Getting straight to the point, what this thing does is to reload your chrome extension once you reload a target window or tab.
 
 Sometimes, manually refreshing your chrome extension in the chrome extensions page [**chrome://extensions**](chrome://extensions) every after change is a really tiring task... So automation is a must!!!
